@@ -1,0 +1,96 @@
+import React from 'react'
+import { View, SafeAreaView, Text, Image, TouchableOpacity, Alert, Share, Button } from "react-native";
+import Header from "../Header/Header";
+
+import { Calendar, LocaleConfig } from 'react-native-calendars';
+
+const Attendance = () => {
+
+    const marked = {
+        '2023-07-29': { marked: true },
+        '2023-07-30': { marked: true },
+        '2023-07-31': { marked: true }
+    };
+
+    const onShare = async () => {
+        try {
+            const result = await Share.share({
+              message:
+                'My Attendance is : ',
+            });
+            // if (result.action === Share.sharedAction) {
+            //   if (result.activityType) {
+            //     // shared with activity type of result.activityType
+            //   } else {
+            //     // shared
+            //   }
+            // } else if (result.action === Share.dismissedAction) {
+            //   // dismissed
+            // }
+        } catch (error) {
+            Alert.alert(error.message);
+        }
+    }
+
+
+  return (
+    <>
+        <Header/>
+
+        {/* ------------------- upper section of attendance --------------------- */}
+        <View className=' flex gap-1 justify-center items-center'>
+            <View className='flex-row gap-2'>
+                
+                <View className='flex justify-center items-center bg-[#B6E9FF] px-2 py-3 rounded-2xl'>
+                    <Text className="font-bold text-lg"> Software Engineering </Text>
+                </View>
+
+                <View className='flex justify-center items-center bg-[#B6E9FF]  px-2  rounded-2xl'>
+                    <Text className="flex-row justify-center items-center">Percentage : <Text className="font-bold text-xl"> 86% </Text>  </Text>
+                </View>
+            </View>
+
+            <View className="flex-row gap-1 justify-center items-center">
+                <View className='flex justify-center bg-[#C4E9E5]  p-2  rounded-2xl'>
+                    <Text className="font-bold text-2xl"> 15 </Text>
+                    <Text className="text-xs"> Classes Attended  </Text>
+                </View>
+                <View className='flex justify-center bg-[#FFC3CF]  p-2  rounded-2xl'>
+                    <Text className="font-bold text-2xl"> 15 </Text>
+                    <Text className="text-xs"> Classes Missed  </Text>
+                </View>
+                <View className='flex justify-center bg-[#D0FFD2]  p-2  rounded-2xl'>
+                    <Text className="font-bold text-2xl"> 15 </Text>
+                    <Text className="text-xs"> Classes to Attended  </Text>
+                </View>
+            </View>
+        </View>
+        {/* ----------------- upper section of attendance ---------------------- */}
+
+
+        {/* -------------------------- Calendar ------------------------------- */}
+            {/* How to use Calendar - Article -> 
+                https://blog.logrocket.com/create-customizable-shareable-calendars-react-native/ 
+            */}
+            <Calendar 
+                className="m-4"
+                
+                // Here we can put semester start and end date (of classes) 
+                minDate="2023-07-10"
+                maxDate="2023-11-30"
+
+                markedDates={marked}  // Marked - dot
+            />
+        {/* ---------x---------------- Calendar ---------------x--------------- */}
+
+        {/* Share Button */}
+        <TouchableOpacity onPress={onShare} className="mx-4 my-6 flex-row justify-center items-center py-3 rounded-2xl bg-[#B6E9FF] overflow-hidden">
+            <Image source={require('../../assets/shareIcon.png')} className="w-5 h-5 mx-3" />
+            <Text className="font-bold text-lg"> Share your Attendance </Text>
+        </TouchableOpacity>
+        
+    </>
+  )
+}
+
+export default Attendance
