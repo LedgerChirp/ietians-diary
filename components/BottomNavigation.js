@@ -11,7 +11,7 @@ const BottomNavigation = ({ state, descriptors, navigation }) => {
 			<View className="items-center flex-row mx-4 justify-between">
 				<UploadFileBottomNavigationItem />
 
-				<View className="border-2 rounded-3xl justify-evenly w-[80%] flex-row">
+				<View className="border border-[#808080] rounded-3xl justify-evenly w-[80%] flex-row">
 					<BottomNavigationItem
 						navigation="Home"
 						isFocused={currentRoute === "Home"}

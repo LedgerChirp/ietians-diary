@@ -5,7 +5,7 @@ import AppNavigator from "./navigation/appNavigation";
 
 export default function App() {
 	return (
-		<SafeAreaView className="flex-1 bg-[#ffffff]">
+		<SafeAreaView className="flex-1 bg-white">
 			<AppNavigator />
 		</SafeAreaView>
 	);

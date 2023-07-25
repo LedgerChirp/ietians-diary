@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 
 const Home = () => {
 	return (
-		<View>
+		<View className="bg-white">
 			<Header />
 		</View>
 	);
