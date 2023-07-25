@@ -8,7 +8,6 @@ const HomeScreen = () => {
 		<View>
 			<Home />
 			<Text>HomeScreen</Text>
-			<BottomNavigation />
 		</View>
 	);
 };

@@ -3,13 +3,11 @@ import React from "react";
 import Header from "../Header/Header";
 
 const Home = () => {
-  return (
-    <SafeAreaView>
-      <View>
-        <Header />
-      </View>
-    </SafeAreaView>
-  );
+	return (
+		<View>
+			<Header />
+		</View>
+	);
 };
 
 export default Home;
