@@ -4,7 +4,7 @@ import { Userpic } from "react-native-userpic";
 import Notifications from "../Notifications/Notifications";
 const Header = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView top={0}>
       <View className="flex-row justify-between items-start">
         <View className="">
           <Image

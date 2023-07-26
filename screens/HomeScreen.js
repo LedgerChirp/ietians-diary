@@ -4,12 +4,11 @@ import Home from "../components/Home/Home";
 import BottomNavigation from "../components/BottomNavigation";
 
 const HomeScreen = () => {
-	return (
-		<View>
-			<Home />
-			<Text>HomeScreen</Text>
-		</View>
-	);
+  return (
+    <View className="mx-2">
+      <Home />
+    </View>
+  );
 };
 
 export default HomeScreen;
