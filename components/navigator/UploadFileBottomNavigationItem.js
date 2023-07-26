@@ -12,7 +12,7 @@ const UploadFileBottomNavigationItem = () => {
 	return (
 		<TouchableOpacity onPress={onPress} className="p-2 rounded-full">
 			<Image
-				source={require("../assets/Icons/upload.png")}
+				source={require("../../assets/Icons/upload.png")}
 				className="w-14 h-14"
 			/>
 		</TouchableOpacity>

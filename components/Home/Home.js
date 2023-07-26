@@ -91,6 +91,7 @@ const Home = () => {
       await SplashScreen.hideAsync();
     }
   }, [fontsLoaded]);
+
   if (!fontsLoaded) {
     return null;
   }
@@ -114,7 +115,10 @@ const Home = () => {
             Recently Visited
           </Text>
           <ScrollView horizontal={true}>
-            <View className="flex-row space-x-2 justify-between items-center">
+            <View
+              className="flex-row space-x-2 justify-between items-center z-0"
+              style={{ zIndex: 0 }}
+            >
               {RecentlyVisited &&
                 RecentlyVisited.map((value, index) => {
                   return (
