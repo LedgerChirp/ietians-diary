@@ -1,15 +1,14 @@
 import { View, Text } from "react-native";
 import React from "react";
 import Home from "../components/Home/Home";
-import BottomNavigation from "../components/BottomNavigation";
+import BottomNavigation from "../components/navigator/BottomNavigation";
 
 const HomeScreen = () => {
-	return (
-		<View>
-			<Home />
-			<Text>HomeScreen</Text>
-		</View>
-	);
+  return (
+    <View className="mx-2">
+      <Home />
+    </View>
+  );
 };
 
 export default HomeScreen;

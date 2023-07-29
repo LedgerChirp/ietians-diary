@@ -1,10 +1,25 @@
-import { SafeAreaView, View, Text, Image } from "react-native";
-import React from "react";
+import {
+  SafeAreaView,
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+} from "react-native";
+// import { Overlay } from "expo";
+import React, { useState } from "react";
 import { Userpic } from "react-native-userpic";
 import Notifications from "../Notifications/Notifications";
+import Menu from "./Menu";
+
 const Header = () => {
+  const [showMenu, setShowMenu] = useState(false);
+  const handleShowMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
   return (
-    <SafeAreaView>
+    <SafeAreaView top={0}>
+      {showMenu && <Menu />}
       <View className="flex-row justify-between items-start">
         <View className="">
           <Image
@@ -12,15 +27,17 @@ const Header = () => {
             className="w-28 h-28 m-2"
           />
         </View>
-        <View className="flex-row my-8 ">
+        <View className="flex-row mt-8 ">
           <Notifications />
-          <Userpic
-            source={{
-              uri: "https://avatars.githubusercontent.com/u/98788439?v=4",
-            }}
-            email={"mustafaazad533@gmail.com" || "mohitaasirwal@gmail.com"}
-            className="h-8 w-8 m-2"
-          />
+          <TouchableOpacity onPress={handleShowMenu}>
+            <Userpic
+              source={{
+                uri: "https://avatars.githubusercontent.com/u/98788439?v=4",
+              }}
+              email={"mustafaazad533@gmail.com" || "mohitaasirwal@gmail.com"}
+              className="h-8 w-8 my-3 mx-2"
+            />
+          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>
