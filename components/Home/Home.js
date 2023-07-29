@@ -9,7 +9,6 @@ import {
 	TouchableOpacity,
 } from "react-native";
 import React, { useCallback, useState } from "react";
-import Header from "../Header/Header";
 import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
 import * as SplashScreen from "expo-splash-screen";
@@ -97,7 +96,6 @@ const Home = () => {
 	}
 	return (
 		<SafeAreaView>
-			<Header />
 			<ScrollView
 				// statusBarHeight={20}
 				fitsSystemWindows={true}
