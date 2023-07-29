@@ -6,6 +6,7 @@ import MaterialScreen from "../screens/MaterialScreen";
 import AttendanceScreen from "../screens/AttendanceScreen";
 import UploadScreen from "../screens/UploadScreen";
 import BottomNavigation from "../components/BottomNavigation";
+import NotificationScreen from "../screens/NotificationScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -34,6 +35,11 @@ const AppNavigator = () => {
 				<Tab.Screen
 					name="Attendance"
 					component={AttendanceScreen}
+					options={{ headerShown: false }}
+				/>
+				<Tab.Screen
+					name="Notification"
+					component={NotificationScreen}
 					options={{ headerShown: false }}
 				/>
 			</Tab.Navigator>
