@@ -41,7 +41,7 @@ const AppNavigator = () => {
         />
       </Tab.Navigator>
       {/* <Stack.Navigator>
-        <Stack.Screenr
+        <Stack.Screen
           name="Notifications"
           component={NotificationsScreen}
           options={{ headerShown: false }}
