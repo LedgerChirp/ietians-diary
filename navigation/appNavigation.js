@@ -10,45 +10,50 @@ import BottomNavigation from "../components/navigator/BottomNavigation";
 import NotificationsScreen from "../screens/NotificationsScreen";
 
 const Tab = createBottomTabNavigator();
-const Stack = createStackNavigator();
+// const Stack = createStackNavigator();
 
 const AppNavigator = () => {
-  return (
-    <NavigationContainer>
-      <Tab.Navigator
-        initialRouteName="Home"
-        tabBar={(props) => <BottomNavigation {...props} />}
-      >
-        <Tab.Screen
-          name="UploadFile"
-          component={UploadScreen}
-          options={{ headerShown: false }}
-        />
-        <Tab.Screen
-          name="Home"
-          component={HomeScreen}
-          options={{ headerShown: false }}
-        />
-        <Tab.Screen
-          name="Material"
-          component={MaterialScreen}
-          options={{ headerShown: false }}
-        />
-        <Tab.Screen
-          name="Attendance"
-          component={AttendanceScreen}
-          options={{ headerShown: false }}
-        />
-      </Tab.Navigator>
-      {/* <Stack.Navigator>
+	return (
+		<NavigationContainer>
+			<Tab.Navigator
+				initialRouteName="Home"
+				tabBar={(props) => <BottomNavigation {...props} />}
+			>
+				<Tab.Screen
+					name="UploadFile"
+					component={UploadScreen}
+					options={{ headerShown: false }}
+				/>
+				<Tab.Screen
+					name="Home"
+					component={HomeScreen}
+					options={{ headerShown: false }}
+				/>
+				<Tab.Screen
+					name="Material"
+					component={MaterialScreen}
+					options={{ headerShown: false }}
+				/>
+				<Tab.Screen
+					name="Attendance"
+					component={AttendanceScreen}
+					options={{ headerShown: false }}
+				/>
+				<Tab.Screen
+					name="Notification"
+					component={NotificationsScreen}
+					options={{ headerShown: false }}
+				/>
+			</Tab.Navigator>
+			{/* <Stack.Navigator>
         <Stack.Screen
           name="Notifications"
           component={NotificationsScreen}
           options={{ headerShown: false }}
         />
       </Stack.Navigator> */}
-    </NavigationContainer>
-  );
+		</NavigationContainer>
+	);
 };
 
 export default AppNavigator;
