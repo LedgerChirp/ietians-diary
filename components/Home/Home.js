@@ -237,14 +237,14 @@ const Home = () => {
 						{QuickAccess &&
 							QuickAccess.map((value, index) => {
 								return (
-									<View key={index} className="flex-row space-x-3">
+									<View key={index} className="flex-row space-x-3 justify-evenly">
 										<View
 											className={`rounded-lg p-3 justify-center items-center`}
 											style={{
 												backgroundColor: value.backgroundColor,
 											}}
 										>
-											<Image source={value.icon} className="w-8 h-8" />
+											<Image source={value.icon} className="w-10 h-10" />
 										</View>
 										<View>
 											<Text
