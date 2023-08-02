@@ -1,9 +1,9 @@
 import {
-	SafeAreaView,
-	View,
-	Text,
-	Image,
-	TouchableOpacity,
+  SafeAreaView,
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
 } from "react-native";
 // import { Overlay } from "expo";
 import React, { useState } from "react";
@@ -13,13 +13,14 @@ import Menu from "./Menu";
 
 // Header component
 const Header = () => {
-	// State to manage the visibility of the menu
-	const [showMenu, setShowMenu] = useState(false);
+  // State to manage the visibility of the menu
+  const [showMenu, setShowMenu] = useState(false);
 
-	// Function to handle showing/hiding the menu when the user taps the user profile picture
-	const handleShowMenu = () => {
-		setShowMenu(!showMenu);
-	};
+  // Function to handle showing/hiding the menu when the user taps the user profile picture
+  const handleShowMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
 
 	return (
 		// SafeAreaView to ensure content is safely rendered within the screen boundaries

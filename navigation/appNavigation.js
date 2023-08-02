@@ -1,7 +1,7 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+// import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "../screens/HomeScreen";
 import MaterialScreen from "../screens/MaterialScreen";
 import AttendanceScreen from "../screens/AttendanceScreen";
@@ -12,7 +12,6 @@ import Notes from "../components/Material/Notes";
 import NotesScreen from "../screens/NotesScreen";
 
 const Tab = createBottomTabNavigator();
-// const Stack = createStackNavigator();
 
 const AppNavigator = () => {
 	return (
@@ -52,13 +51,6 @@ const AppNavigator = () => {
 					options={{ headerShown: false }}
 				/>
 			</Tab.Navigator>
-			{/* <Stack.Navigator>
-        <Stack.Screen
-          name="Notifications"
-          component={NotificationsScreen}
-          options={{ headerShown: false }}
-        />
-      </Stack.Navigator> */}
 		</NavigationContainer>
 	);
 };
