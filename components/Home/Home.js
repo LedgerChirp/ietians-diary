@@ -230,54 +230,56 @@ const Home = () => {
         </LinearGradient>
       </View>
 
-      {/* Quick Access */}
-      <View className="space-y-4">
-        <Text
-          className="uppercase self-start"
-          style={{ fontFamily: "open-sans-med", color: "#808080" }}
-        >
-          Quick Access
-        </Text>
-        <View className="mb-5 space-y-4">
-          {QuickAccess &&
-            QuickAccess.map((value, index) => {
-              return (
-                <View key={index} className="flex-row space-x-3">
-                  <View
-                    className={`rounded-lg p-3 justify-center items-center`}
-                    style={{
-                      backgroundColor: value.backgroundColor,
-                    }}
-                  >
-                    <Image source={value.icon} className="w-8 h-8" />
-                  </View>
-                  <View>
-                    <Text
-                      className="text-base"
-                      style={{ fontFamily: "poppins-normal" }}
-                    >
-                      {value.title}
-                    </Text>
-                    <Text
-                      className="w-56 text-xs"
-                      style={{ fontFamily: "poppins-light" }}
-                    >
-                      {value.description}
-                    </Text>
-                  </View>
-                  <TouchableOpacity>
-                    <Image
-                      source={require("../../assets/Icons/arrow_circle.png")}
-                      className="w-10 h-10 my-3"
-                    />
-                  </TouchableOpacity>
-                </View>
-              );
-            })}
-        </View>
-      </View>
-    </ScrollView>
-  );
+
+				{/* Quick Access */}
+				<View className="space-y-4">
+					<Text
+						className="uppercase self-start"
+						style={{ fontFamily: "open-sans-med", color: "#808080" }}
+					>
+						Quick Access
+					</Text>
+					<View className="mb-5 space-y-4">
+						{QuickAccess &&
+							QuickAccess.map((value, index) => {
+								return (
+									<View key={index} className="flex-row space-x-3 justify-evenly">
+										<View
+											className={`rounded-lg p-3 justify-center items-center`}
+											style={{
+												backgroundColor: value.backgroundColor,
+											}}
+										>
+											<Image source={value.icon} className="w-10 h-10" />
+										</View>
+										<View>
+											<Text
+												className="text-base"
+												style={{ fontFamily: "poppins-normal" }}
+											>
+												{value.title}
+											</Text>
+											<Text
+												className="w-56 text-xs"
+												style={{ fontFamily: "poppins-light" }}
+											>
+												{value.description}
+											</Text>
+										</View>
+										<TouchableOpacity>
+											<Image
+												source={require("../../assets/Icons/arrow_circle.png")}
+												className="w-10 h-10 my-3"
+											/>
+										</TouchableOpacity>
+									</View>
+								);
+							})}
+					</View>
+				</View>
+			</ScrollView>
+		</SafeAreaView>
+	);
 };
 
 export default Home;

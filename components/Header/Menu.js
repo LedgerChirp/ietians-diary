@@ -25,9 +25,21 @@ const Menu = () => {
 
   return (
     <View
-      className="w-auto space-y-3 h-auto rounded-lg blur-sm bg-white absolute top-24 right-5 z-50"
+      // className="w-auto space-y-3 h-auto rounded-lg blur-sm bg-white absolute top-24 right-5"
       onLayout={onLayoutRootView}
-      style={{ zIndex: 1000 }}
+      style={{
+        position: "absolute",
+        top: 90,
+        right: 5,
+        zIndex: 1000,
+        backgroundColor: "white",
+        borderRadius: 10,
+        shadowColor: "black",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 5,
+        elevation: 5,
+      }}
     >
       <Text
         className="text-base px-2 py-1"
@@ -53,7 +65,7 @@ const Menu = () => {
       >
         Log Out
       </Text>
-    </View>
+    </View >
   );
 };
 

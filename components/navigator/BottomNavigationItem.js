@@ -18,6 +18,10 @@ const BottomNavigationItem = ({ navigation, isFocused }) => {
     iconSource = isFocused
       ? require("../../assets/Icons/material_blue.png")
       : require("../../assets/Icons/material.png");
+  } else if (navigation === "Notes") {
+    iconSource = isFocused
+      ? require("../../assets/Icons/material_blue.png")
+      : require("../../assets/Icons/material.png");
   } else if (navigation === "Attendance") {
     iconSource = isFocused
       ? require("../../assets/Icons/attendance_blue.png")
