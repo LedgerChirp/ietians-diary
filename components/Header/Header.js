@@ -1,9 +1,9 @@
 import {
-	SafeAreaView,
-	View,
-	Text,
-	Image,
-	TouchableOpacity,
+  SafeAreaView,
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
 } from "react-native";
 // import { Overlay } from "expo";
 import React, { useState } from "react";
@@ -13,17 +13,18 @@ import Menu from "./Menu";
 
 // Header component
 const Header = () => {
-	// State to manage the visibility of the menu
-	const [showMenu, setShowMenu] = useState(false);
+  // State to manage the visibility of the menu
+  const [showMenu, setShowMenu] = useState(false);
 
-	// Function to handle showing/hiding the menu when the user taps the user profile picture
-	const handleShowMenu = () => {
-		setShowMenu(!showMenu);
-	};
+  // Function to handle showing/hiding the menu when the user taps the user profile picture
+  const handleShowMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
 
 	return (
 		// SafeAreaView to ensure content is safely rendered within the screen boundaries
-		<SafeAreaView top={0}>
+		<SafeAreaView top={0} style={{ zIndex: 50 }}>
 			{/* Conditionally render the Menu component based on the value of showMenu */}
 			{showMenu && <Menu />}
 			{/* View representing the container for the header content */}
@@ -47,7 +48,7 @@ const Header = () => {
 							source={{
 								uri: "https://avatars.githubusercontent.com/u/98788439?v=4",
 							}}
-							email={"mustafaazad533@gmail.com" || "mohitaasirwal@gmail.com"}
+							email={"tkanishk6103@gmail.com" || "mustafaazad533@gmail.com" || "mohitaasirwal@gmail.com"}
 							className="h-8 w-8 my-3 mx-2"
 						/>
 					</TouchableOpacity>

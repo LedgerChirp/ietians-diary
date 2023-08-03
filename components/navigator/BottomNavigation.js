@@ -21,6 +21,10 @@ const BottomNavigation = ({ state, descriptors, navigation }) => {
             isFocused={currentRoute === "Material"}
           />
           <BottomNavigationItem
+            navigation="Notes"
+            isFocused={currentRoute === "Notes"}
+          />
+          <BottomNavigationItem
             navigation="Attendance"
             isFocused={currentRoute === "Attendance"}
           />
