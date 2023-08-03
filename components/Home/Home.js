@@ -10,8 +10,8 @@ import {
 } from "react-native";
 import React, { useCallback, useState } from "react";
 import { useFonts } from "expo-font";
-import { LinearGradient } from "expo-linear-gradient";
 import * as SplashScreen from "expo-splash-screen";
+import { LinearGradient } from "expo-linear-gradient";
 
 //Data
 //recently visited
@@ -104,7 +104,7 @@ const Home = () => {
     <ScrollView
       // statusBarHeight={20}
       fitsSystemWindows={true}
-      className="h-[82vh]"
+      className="h-[85vh]"
       showsVerticalScrollIndicator={false} // Hide vertical scrollbar
       showsHorizontalScrollIndicator={false} // Hide horizontal scrollbar
       onLayout={onLayoutRootView}
@@ -117,7 +117,11 @@ const Home = () => {
         >
           Recently Visited
         </Text>
-        <ScrollView horizontal={true}>
+        <ScrollView
+          horizontal={true}
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
+        >
           <View
             className="flex-row space-x-2 justify-between items-center z-0"
             style={{ zIndex: 0 }}
@@ -230,56 +234,54 @@ const Home = () => {
         </LinearGradient>
       </View>
 
-
-				{/* Quick Access */}
-				<View className="space-y-4">
-					<Text
-						className="uppercase self-start"
-						style={{ fontFamily: "open-sans-med", color: "#808080" }}
-					>
-						Quick Access
-					</Text>
-					<View className="mb-5 space-y-4">
-						{QuickAccess &&
-							QuickAccess.map((value, index) => {
-								return (
-									<View key={index} className="flex-row space-x-3 justify-evenly">
-										<View
-											className={`rounded-lg p-3 justify-center items-center`}
-											style={{
-												backgroundColor: value.backgroundColor,
-											}}
-										>
-											<Image source={value.icon} className="w-10 h-10" />
-										</View>
-										<View>
-											<Text
-												className="text-base"
-												style={{ fontFamily: "poppins-normal" }}
-											>
-												{value.title}
-											</Text>
-											<Text
-												className="w-56 text-xs"
-												style={{ fontFamily: "poppins-light" }}
-											>
-												{value.description}
-											</Text>
-										</View>
-										<TouchableOpacity>
-											<Image
-												source={require("../../assets/Icons/arrow_circle.png")}
-												className="w-10 h-10 my-3"
-											/>
-										</TouchableOpacity>
-									</View>
-								);
-							})}
-					</View>
-				</View>
-			</ScrollView>
-		</SafeAreaView>
-	);
+      {/* Quick Access */}
+      <View className="space-y-4">
+        <Text
+          className="uppercase self-start"
+          style={{ fontFamily: "open-sans-med", color: "#808080" }}
+        >
+          Quick Access
+        </Text>
+        <View className="mb-5 space-y-4">
+          {QuickAccess &&
+            QuickAccess.map((value, index) => {
+              return (
+                <View key={index} className="flex-row space-x-3 justify-evenly">
+                  <View
+                    className={`rounded-lg p-3 justify-center items-center`}
+                    style={{
+                      backgroundColor: value.backgroundColor,
+                    }}
+                  >
+                    <Image source={value.icon} className="w-10 h-10" />
+                  </View>
+                  <View>
+                    <Text
+                      className="text-base"
+                      style={{ fontFamily: "poppins-normal" }}
+                    >
+                      {value.title}
+                    </Text>
+                    <Text
+                      className="w-56 text-xs"
+                      style={{ fontFamily: "poppins-light" }}
+                    >
+                      {value.description}
+                    </Text>
+                  </View>
+                  <TouchableOpacity>
+                    <Image
+                      source={require("../../assets/Icons/arrow_circle.png")}
+                      className="w-10 h-10 my-3"
+                    />
+                  </TouchableOpacity>
+                </View>
+              );
+            })}
+        </View>
+      </View>
+    </ScrollView>
+  );
 };
 
 export default Home;

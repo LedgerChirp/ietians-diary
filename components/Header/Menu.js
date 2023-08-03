@@ -1,11 +1,17 @@
-import { View, Text, Switch } from "react-native";
+import { View, Text, Switch, TouchableOpacity } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import React, { useCallback, useState } from "react";
 import { useFonts } from "expo-font";
+import { useNavigation } from "@react-navigation/native";
 
 SplashScreen.preventAutoHideAsync();
 
 const Menu = () => {
+  const { navigate } = useNavigation();
+
+  const onPress = () => {
+    navigate("Login");
+  };
   const [fontsLoaded] = useFonts({
     "open-sans-med": require("../../assets/fonts/opensans/static/OpenSans-Medium.ttf"),
     "open-sans-bold": require("../../assets/fonts/opensans/static/OpenSans-Bold.ttf"),
@@ -41,12 +47,14 @@ const Menu = () => {
         elevation: 5,
       }}
     >
-      <Text
-        className="text-base px-2 py-1"
-        style={{ fontFamily: "poppins-normal" }}
-      >
-        Dark Mode
-      </Text>
+      <TouchableOpacity onPress={onPress}>
+        <Text
+          className="text-base px-2 py-1"
+          style={{ fontFamily: "poppins-normal" }}
+        >
+          Dark Mode
+        </Text>
+      </TouchableOpacity>
       <Text
         className="text-base px-2 py-1"
         style={{ fontFamily: "poppins-normal" }}
@@ -65,7 +73,7 @@ const Menu = () => {
       >
         Log Out
       </Text>
-    </View >
+    </View>
   );
 };
 

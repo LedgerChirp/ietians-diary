@@ -8,7 +8,7 @@ const HomeScreen = () => {
   return (
     <View className="bg-white">
       <Header />
-      <View className="px-2 bg-white">
+      <View className="p-2 bg-white">
         <Home />
       </View>
     </View>

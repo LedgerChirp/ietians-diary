@@ -10,49 +10,55 @@ import BottomNavigation from "../components/navigator/BottomNavigation";
 import NotificationsScreen from "../screens/NotificationsScreen";
 import Notes from "../components/Material/Notes";
 import NotesScreen from "../screens/NotesScreen";
+import LoginScreen from "../screens/LoginScreen";
 
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
-	return (
-		<NavigationContainer>
-			<Tab.Navigator
-				initialRouteName="Home"
-				tabBar={(props) => <BottomNavigation {...props} />}
-			>
-				<Tab.Screen
-					name="UploadFile"
-					component={UploadScreen}
-					options={{ headerShown: false }}
-				/>
-				<Tab.Screen
-					name="Home"
-					component={HomeScreen}
-					options={{ headerShown: false }}
-				/>
-				<Tab.Screen
-					name="Material"
-					component={MaterialScreen}
-					options={{ headerShown: false }}
-				/>
-				<Tab.Screen
-					name="Notes"
-					component={NotesScreen}
-					options={{ headerShown: false }}
-				/>
-				<Tab.Screen
-					name="Attendance"
-					component={AttendanceScreen}
-					options={{ headerShown: false }}
-				/>
-				<Tab.Screen
-					name="Notification"
-					component={NotificationsScreen}
-					options={{ headerShown: false }}
-				/>
-			</Tab.Navigator>
-		</NavigationContainer>
-	);
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        initialRouteName="Home"
+        tabBar={(props) => <BottomNavigation {...props} />}
+      >
+        <Tab.Screen
+          name="UploadFile"
+          component={UploadScreen}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name="Material"
+          component={MaterialScreen}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name="Notes"
+          component={NotesScreen}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name="Attendance"
+          component={AttendanceScreen}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name="Notification"
+          component={NotificationsScreen}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{ headerShown: false }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
 };
 
 export default AppNavigator;
