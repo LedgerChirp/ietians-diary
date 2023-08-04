@@ -1,9 +1,12 @@
-import { View, Text } from "react-native";
+import { View, Text, TouchableOpacity, Image } from "react-native";
 import React, { useState } from "react";
 import { SafeAreaView } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 import { TextInput } from "react-native";
 import Header from "../Header/Header";
+import * as DocumentPicker from "expo-document-picker";
+import uploadIcon from "../../assets/Icons/uploadicon.png";
+import pdf from "../../assets/Icons/pdf.png";
 
 const Upload = () => {
 	const [text, onChangeText] = useState("");
@@ -20,10 +23,30 @@ const Upload = () => {
 		{ label: "Social Science", value: "Social Science" },
 	]);
 
+	const [selectedFile, setSelectedFile] = useState(null);
+
+	const pickFile = async () => {
+		try {
+			const result = await DocumentPicker.getDocumentAsync({ type: "*/*" });
+
+			if (result.type === "success") {
+				setSelectedFile(result);
+			} else {
+				console.log("Document picking cancelled.");
+			}
+		} catch (err) {
+			console.log("Error selecting document:", err);
+		}
+	};
+
+	const deleteFile = () => {
+		setSelectedFile(null);
+	};
+
 	return (
 		<View className="bg-white h-full">
 			<Header />
-			<View className=" border-2 border-[#0FA958] rounded-2xl h-[70%] mx-3">
+			<View className=" border-2 border-[#0FA958] rounded-2xl h-fit py-6 mx-3">
 				<SafeAreaView>
 					<TextInput
 						placeholder="File Name"
@@ -138,6 +161,39 @@ const Upload = () => {
 							marginHorizontal: "5%",
 						}}
 					/>
+					<TouchableOpacity
+						onPress={pickFile}
+						className="my-4 py-2 border-4 border-[#A9A9A9] rounded-3xl w-[80%] mx-auto flex-row justify-evenly items-center"
+					>
+						<Image source={uploadIcon} className="w-6 h-6" />
+						<Text className="text-[#919191]">UPLOAD YOUR FILES HERE</Text>
+					</TouchableOpacity>
+					<Text className="font-semibold my-2 text-sm text-[#ABABAB] w-[90%] mx-[5%]">
+						UPLOADED FILES
+					</Text>
+					{selectedFile && (
+						<>
+							<View className="w-[90%] mx-[5%] flex-row items-center justify-between bg-slate-200 rounded-2xl p-3 mt-3">
+								<Image source={pdf} className="w-7 h-7" />
+								<Text
+									className="max-w-[60%] overflow-x-hidden text-[#848484] font-semibold"
+									numberOfLines={1}
+									ellipsizeMode="tail"
+								>
+									{selectedFile.name}
+								</Text>
+								<Text className="text-[10px] text-[#848484]">Uploaded</Text>
+							</View>
+							<TouchableOpacity
+								className="relative bottom-3 flex-row items-center justify-end font-bold text-black mx-[5%] w-[90%] "
+								onPress={deleteFile}
+							>
+								<Text className="bg-[#0FA958] rounded-full w-5 h-5 text-center text-[12px] hover:bg-[#0FB]">
+									x
+								</Text>
+							</TouchableOpacity>
+						</>
+					)}
 				</SafeAreaView>
 			</View>
 		</View>
