@@ -1,3 +1,4 @@
+//imports
 import {
   View,
   Text,
@@ -13,13 +14,64 @@ import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import * as ImagePicker from "expo-image-picker";
 import { Picker } from "@react-native-picker/picker";
+import DropDownPicker from "react-native-dropdown-picker";
+//import end
 
+//function for loading fonts
 SplashScreen.preventAutoHideAsync();
 
 const SignUp = () => {
-  const [image, setImage] = useState("https://reactjs.org/logo-og.png");
-  const [text, setText] = useState("");
-  const [selectedLanguage, setSelectedLanguage] = useState();
+  //states0
+  const [image, setImage] = useState(
+    "https://imgs.search.brave.com/b69e8q5lU7TpfQeQ_7q81DkY4si8IvS3R-ie2g12GP0/rs:fit:860:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA1Lzc2LzY5LzY3/LzM2MF9GXzU3NjY5/Njc1MV9zb2NXTXRl/aEVXcDRTeXZEbEp0/c3RJQWtCYWtrR1RW/ay5qcGc"
+  ); //for loading image from user
+  //form states
+  const [Name, setName] = useState("");
+  const [Enrol, setEnrol] = useState("");
+  const [RollNo, setRollNo] = useState("");
+  const [Semester, setSemester] = useState("");
+  const [CollegeMail, setCollegeMail] = useState("");
+  const [Mobile, setMobile] = useState("");
+  const [Otp, setOtp] = useState("");
+  //form states end
+  //dropdown list
+  // const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(null);
+  const [Branch, setBranch] = useState([
+    { label: "Computer Science", value: "Computer Science" },
+    { label: "Information Technology", value: "Information Technology" },
+    {
+      label: "Electronics and Telecommunication",
+      value: "Electronics and Telecommunication",
+    },
+    {
+      label: "Electronics and Instrumentation",
+      value: "Electronics and Instrumentation",
+    },
+    { label: "Mechanical", value: "Mechanical" },
+    { label: "Civil", value: "Civil" },
+  ]);
+  const [Section, setSection] = useState([
+    { label: "A", value: "A" },
+    { label: "B", value: "B" },
+    {
+      label: "None",
+      value: "None",
+    },
+  ]);
+  // const [Branch, setBranch] = useState("Select Branch");
+  // const [Section, setSection] = useState("Select Section");
+  const [branchOpen, setBranchOpen] = useState(false);
+  const [sectionOpen, setSectionOpen] = useState(false);
+
+  const onBranchOpen = useCallback(() => {
+    setSectionOpen(false);
+  }, []);
+
+  const onSectionOpen = useCallback(() => {
+    setBranchOpen(false);
+  }, []);
+
   //loading fonts
   const [fontsLoaded] = useFonts({
     "open-sans-med": require("../../assets/fonts/opensans/static/OpenSans-Medium.ttf"),
@@ -38,7 +90,8 @@ const SignUp = () => {
   if (!fontsLoaded) {
     return null;
   }
-
+  //font loading function end
+  //image picking function
   const pickImage = async () => {
     // No permissions request is necessary for launching the image library
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -53,8 +106,9 @@ const SignUp = () => {
       setImage(result.assets[0].uri);
     }
   };
+  //rendering the view
   return (
-    <View>
+    <View className="bg-white">
       <Header />
       {/* avatar section */}
       <View className="flex-row">
@@ -83,7 +137,12 @@ const SignUp = () => {
           <Text className="text-2xl font-bold uppercase">
             Kanishk <Text className="font-light">Tiwari</Text>
           </Text>
-          <Text className="font-extralight text-base">Student</Text>
+          <Text
+            className="font-extralight text-base"
+            style={{ fontFamily: "open-sans-med" }}
+          >
+            Student
+          </Text>
         </View>
       </View>
       {/* Form */}
@@ -99,13 +158,13 @@ const SignUp = () => {
           style={{
             width: "80%",
             height: 40,
-            borderBottomWidth: 1,
+            borderBottomWidth: 1.2,
             borderBottomColor: "black",
             borderColor: "gray",
             paddingHorizontal: 10,
           }}
-          value={text}
-          onChangeText={(newText) => setText(newText)}
+          value={Name}
+          onChangeText={(newText) => setName(newText)}
           editable={true}
           placeholder="Name"
         />
@@ -113,13 +172,13 @@ const SignUp = () => {
           style={{
             width: "80%",
             height: 40,
-            borderBottomWidth: 1,
+            borderBottomWidth: 1.2,
             borderBottomColor: "black",
             borderColor: "gray",
             paddingHorizontal: 10,
           }}
-          value={text}
-          onChangeText={(newText) => setText(newText)}
+          value={Enrol}
+          onChangeText={(newText) => setEnrol(newText)}
           editable={true}
           placeholder="Enrolment No."
         />
@@ -127,36 +186,72 @@ const SignUp = () => {
           style={{
             width: "80%",
             height: 40,
-            borderBottomWidth: 1,
+            borderBottomWidth: 1.2,
             borderBottomColor: "black",
             borderColor: "gray",
             paddingHorizontal: 10,
           }}
-          value={text}
-          onChangeText={(newText) => setText(newText)}
+          value={RollNo}
+          onChangeText={(newText) => setRollNo(newText)}
           editable={true}
           placeholder="Current Roll No."
         />
-        <Picker
-          selectedValue={selectedLanguage}
-          onValueChange={(itemValue, itemIndex) =>
-            setSelectedLanguage(itemValue)
-          }
-        >
-          <Picker.Item label="Java" value="java" />
-          <Picker.Item label="JavaScript" value="js" />
-        </Picker>
+        <View className="flex-row my-10 space-x-10">
+          <View className="border-b-black border-spacing-10">
+            <DropDownPicker
+              value={value}
+              items={Branch}
+              setValue={setValue}
+              setItems={setBranch}
+              open={branchOpen}
+              setOpen={setBranchOpen}
+              onOpen={onBranchOpen}
+              placeholder="Select Branch"
+              className=""
+              style={{
+                borderWidth: 0,
+                backgroundColor: "#ffffff",
+                borderBottomWidth: 1.2,
+                borderBottomColor: "black",
+                zIndex: 40,
+              }}
+            />
+          </View>
+          <View>
+            <DropDownPicker
+              open={sectionOpen}
+              setOpen={setSectionOpen}
+              value={value}
+              items={Section}
+              onOpen={onSectionOpen}
+              setValue={setValue}
+              setItems={setSection}
+              className=""
+              placeholder="Select Section"
+              style={{
+                borderWidth: 0,
+                backgroundColor: "#ffffff",
+                borderBottomWidth: 1.2,
+                borderBottomColor: "black",
+                // width: 100,
+                marginRight: 10,
+                zIndex: 30,
+                // height: 5,
+              }}
+            />
+          </View>
+        </View>
         <TextInput
           style={{
             width: "80%",
             height: 40,
-            borderBottomWidth: 1,
+            borderBottomWidth: 1.2,
             borderBottomColor: "black",
             borderColor: "gray",
             paddingHorizontal: 10,
           }}
-          value={text}
-          onChangeText={(newText) => setText(newText)}
+          value={Semester}
+          onChangeText={(newText) => setSemester(newText)}
           editable={true}
           placeholder="Semester"
         />
@@ -164,13 +259,13 @@ const SignUp = () => {
           style={{
             width: "80%",
             height: 40,
-            borderBottomWidth: 1,
+            borderBottomWidth: 1.2,
             borderBottomColor: "black",
             borderColor: "gray",
             paddingHorizontal: 10,
           }}
-          value={text}
-          onChangeText={(newText) => setText(newText)}
+          value={CollegeMail}
+          onChangeText={(newText) => setCollegeMail(newText)}
           editable={true}
           placeholder="College Email ID"
         />
@@ -178,13 +273,13 @@ const SignUp = () => {
           style={{
             width: "80%",
             height: 40,
-            borderBottomWidth: 1,
+            borderBottomWidth: 1.2,
             borderBottomColor: "black",
             borderColor: "gray",
             paddingHorizontal: 10,
           }}
-          value={text}
-          onChangeText={(newText) => setText(newText)}
+          value={Mobile}
+          onChangeText={(newText) => setMobile(newText)}
           editable={true}
           placeholder="Mobile No."
         />
@@ -192,13 +287,13 @@ const SignUp = () => {
           style={{
             width: "80%",
             height: 40,
-            borderBottomWidth: 1,
+            borderBottomWidth: 1.2,
             borderBottomColor: "black",
             borderColor: "gray",
             paddingHorizontal: 10,
           }}
-          value={text}
-          onChangeText={(newText) => setText(newText)}
+          value={Otp}
+          onChangeText={(newText) => setOtp(newText)}
           editable={true}
           placeholder="Enter OTP"
         />

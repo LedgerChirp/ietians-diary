@@ -1,12 +1,14 @@
 {
   "expo": {
-    "name": "ietdiary",
-    "slug": "ietdiary",
+    "name": "IETians Diary",
+    "slug": "ietians-diary",
+    "description": "Soul of Institute of Engineering and Technology - DAVV",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
+    "icon": "./assets/logo-with-bg.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/logo-with-bg.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -16,7 +18,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/logo-with-bg.png",
         "backgroundColor": "#ffffff"
       }
     },
@@ -24,7 +26,7 @@
       [
         "expo-image-picker",
         {
-          "photosPermission": "The app accesses your photos to let you share them with your friends."
+          "photosPermission": "app uses photo uploading for avatar creation"
         }
       ]
     ]
