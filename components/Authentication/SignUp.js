@@ -108,7 +108,7 @@ const SignUp = () => {
   };
   //rendering the view
   return (
-    <View className="bg-white">
+    <View className="bg-white h-fit">
       <Header />
       {/* avatar section */}
       <View className="flex-row">
@@ -152,6 +152,7 @@ const SignUp = () => {
           flex: 1,
           alignItems: "center",
           justifyContent: "center",
+          zIndex: 0,
         }}
       >
         <TextInput
@@ -197,7 +198,16 @@ const SignUp = () => {
           placeholder="Current Roll No."
         />
         <View className="flex-row my-10 space-x-10">
-          <View className="border-b-black border-spacing-10">
+          <View
+            className=""
+            style={{
+              width: "40%",
+              marginHorizontal: 0,
+              zIndex: 100,
+              borderBottomWidth: 0.5,
+              borderColor: "#000000",
+            }}
+          >
             <DropDownPicker
               value={value}
               items={Branch}
@@ -209,15 +219,40 @@ const SignUp = () => {
               placeholder="Select Branch"
               className=""
               style={{
+                zIndex: 100,
                 borderWidth: 0,
                 backgroundColor: "#ffffff",
-                borderBottomWidth: 1.2,
-                borderBottomColor: "black",
-                zIndex: 40,
+                color: "#807D7D",
+              }}
+              placeholderStyle={{
+                fontWeight: "light", // Changed 'light' to 'normal'
+                color: "#807D7D",
+                fontSize: 14, // Removed "px"
+              }}
+              dropDownContainerStyle={{
+                zIndex: 100,
+                backgroundColor: "#fff",
+                // Removed commented code
+                // backgroundColor: "#B6E9FF",
+              }}
+              listItemLabelStyle={{
+                fontWeight: "bold",
+                color: "#807D7D",
+                backgroundColor: "#fff",
+                fontSize: 14, // Removed "px"
+                paddingHorizontal: 8, // Removed "px"
               }}
             />
           </View>
-          <View>
+          <View
+            style={{
+              width: "40%",
+              marginHorizontal: 0,
+              zIndex: 100,
+              borderBottomWidth: 0.5,
+              borderColor: "#000000",
+            }}
+          >
             <DropDownPicker
               open={sectionOpen}
               setOpen={setSectionOpen}
@@ -229,14 +264,29 @@ const SignUp = () => {
               className=""
               placeholder="Select Section"
               style={{
+                width: "100%",
+                zIndex: 100,
                 borderWidth: 0,
                 backgroundColor: "#ffffff",
-                borderBottomWidth: 1.2,
-                borderBottomColor: "black",
-                // width: 100,
-                marginRight: 10,
-                zIndex: 30,
-                // height: 5,
+                color: "#807D7D",
+              }}
+              placeholderStyle={{
+                fontWeight: "light", // Changed 'light' to 'normal'
+                color: "#807D7D",
+                fontSize: 14, // Removed "px"
+              }}
+              dropDownContainerStyle={{
+                backgroundColor: "#fff",
+                zIndex: 100,
+                // Removed commented code
+                // backgroundColor: "#B6E9FF",
+              }}
+              listItemLabelStyle={{
+                fontWeight: "bold",
+                color: "#807D7D",
+                backgroundColor: "#fff",
+                fontSize: 14, // Removed "px"
+                paddingHorizontal: 8, // Removed "px"
               }}
             />
           </View>
@@ -298,6 +348,9 @@ const SignUp = () => {
           placeholder="Enter OTP"
         />
       </View>
+      <TouchableOpacity className="w-[90%] mx-[5%] bg-[#0FA958] rounded-xl py-5 mt-4">
+        <Text className="text-center text-white font-semibold">Submit</Text>
+      </TouchableOpacity>
     </View>
   );
 };
