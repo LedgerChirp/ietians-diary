@@ -8,6 +8,7 @@ const UploadFileBottomNavigationItem = () => {
 	const onPress = () => {
 		navigate("UploadFile");
 	};
+	
 
 	return (
 		<TouchableOpacity onPress={onPress} className="p-2 rounded-full">

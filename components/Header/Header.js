@@ -1,9 +1,9 @@
 import {
-  SafeAreaView,
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
+	SafeAreaView,
+	View,
+	Text,
+	Image,
+	TouchableOpacity,
 } from "react-native";
 // import { Overlay } from "expo";
 import React, { useState } from "react";
@@ -13,13 +13,13 @@ import Menu from "./Menu";
 
 // Header component
 const Header = () => {
-  // State to manage the visibility of the menu
-  const [showMenu, setShowMenu] = useState(false);
+	// State to manage the visibility of the menu
+	const [showMenu, setShowMenu] = useState(false);
 
-  // Function to handle showing/hiding the menu when the user taps the user profile picture
-  const handleShowMenu = () => {
-    setShowMenu(!showMenu);
-  };
+	// Function to handle showing/hiding the menu when the user taps the user profile picture
+	const handleShowMenu = () => {
+		setShowMenu(!showMenu);
+	};
 
 
 	return (
@@ -46,7 +46,7 @@ const Header = () => {
 						{/* Userpic component to display the user's profile picture */}
 						<Userpic
 							source={{
-								uri: "https://avatars.githubusercontent.com/u/98788439?v=4",
+								uri: "https://avatars.githubusercontent.com/u/72643990?v=4",
 							}}
 							email={"tkanishk6103@gmail.com" || "mustafaazad533@gmail.com" || "mohitaasirwal@gmail.com"}
 							className="h-8 w-8 my-3 mx-2"
