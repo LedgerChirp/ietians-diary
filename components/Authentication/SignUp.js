@@ -37,6 +37,7 @@ const SignUp = () => {
 	//dropdown list
 	// const [open, setOpen] = useState(false);
 	const [value, setValue] = useState(null);
+	const [svalue, setvSalue] = useState(null);
 	const [Branch, setBranch] = useState([
 		{ label: "CSE", value: "CSE" },
 		{ label: "IT", value: "IT" },
@@ -153,7 +154,6 @@ const SignUp = () => {
 					flex: 1,
 					alignItems: "center",
 					justifyContent: "center",
-					zIndex: 0,
 				}}
 			>
 				<TextInput
@@ -246,16 +246,16 @@ const SignUp = () => {
 					<View
 						style={{
 							width: "48%",
-							marginHorizontal: 0,
+							// marginHorizontal: 0,
 						}}
 					>
 						<DropDownPicker
 							open={sectionOpen}
 							setOpen={setSectionOpen}
-							value={value}
+							value={svalue}
 							items={Section}
 							onOpen={onSectionOpen}
-							setValue={setValue}
+							setValue={setvSalue}
 							setItems={setSection}
 							className=""
 							placeholder="Select Section"
@@ -270,6 +270,24 @@ const SignUp = () => {
 								color: "#807D7D",
 								fontSize: 14, // Removed "px"
 							}}
+							// ArrowDownIconComponent={() => (
+							//   <Image
+							//     source={require("../../assets/Icons/arrow-down.png")}
+							//     style={{
+							//       width: 10,
+							//       height: 10,
+							//     }}
+							//   />
+							// )}
+							// ArrowUpIconComponent={() => (
+							//   <Image
+							//     source={require("../../assets/Icons/arrow-up.png")}
+							//     style={{
+							//       width: 10,
+							//       height: 10,
+							//     }}
+							//   />
+							// )}
 							dropDownContainerStyle={{
 								backgroundColor: "#fff",
 								// Removed commented code
