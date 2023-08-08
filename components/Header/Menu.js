@@ -2,6 +2,7 @@ import { View, Text, Switch } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import React, { useCallback, useState } from "react";
 import { useFonts } from "expo-font";
+import { useNavigation } from "@react-navigation/native";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -22,6 +23,12 @@ const Menu = () => {
   if (!fontsLoaded) {
     return null;
   }
+
+  const { navigate } = useNavigation();
+
+  const onPressProfile = () => {
+    navigate("Profile");
+  };
 
   return (
     <View
@@ -50,6 +57,7 @@ const Menu = () => {
       <Text
         className="text-base px-2 py-1"
         style={{ fontFamily: "poppins-normal" }}
+        onPress={onPressProfile}
       >
         Profile
       </Text>
@@ -65,7 +73,7 @@ const Menu = () => {
       >
         Log Out
       </Text>
-    </View >
+    </View>
   );
 };
 
