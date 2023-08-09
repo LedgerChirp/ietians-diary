@@ -10,11 +10,18 @@ import React, { useState } from "react";
 import { Userpic } from "react-native-userpic";
 import Notifications from "../Notifications/Notifications";
 import Menu from "./Menu";
+import { useFocusEffect } from "@react-navigation/native";
 
 // Header component
 const Header = () => {
 	// State to manage the visibility of the menu
 	const [showMenu, setShowMenu] = useState(false);
+	// useFocusEffect(() => {
+	// 	return () => {
+	// 		// This code will run when the component is unmounted or navigated away
+	// 		setShowMenu(false);
+	// 	};
+	// });
 
 	// Function to handle showing/hiding the menu when the user taps the user profile picture
 	const handleShowMenu = () => {
