@@ -10,6 +10,7 @@ import BottomNavigation from "../components/navigator/BottomNavigation";
 import NotificationsScreen from "../screens/NotificationsScreen";
 import Notes from "../components/Material/Notes";
 import NotesScreen from "../screens/NotesScreen";
+import ProfileScreen from "../components/Profile/Profile";
 
 const Tab = createBottomTabNavigator();
 
@@ -20,6 +21,11 @@ const AppNavigator = () => {
 				initialRouteName="Home"
 				tabBar={(props) => <BottomNavigation {...props} />}
 			>
+				<Tab.Screen
+					name="Profile"
+					component={ProfileScreen}
+					options={{ headerShown: false }}
+				/>
 				<Tab.Screen
 					name="UploadFile"
 					component={UploadScreen}

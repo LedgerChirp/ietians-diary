@@ -15,19 +15,16 @@ const Upload = () => {
 	const [branchSelect, setBranchSelect] = useState("");
 	const [sem, setSem] = useState("");
 	const [filesname, setFilesname] = useState([
-		{ label: "Maths", value: "Maths" },
-		{ label: "Science", value: "Science" },
-		{ label: "English", value: "English" },
-		{ label: "Hindi", value: "Hindi" },
-		{ label: "Sanskrit", value: "Sanskrit" },
-		{ label: "Social Science", value: "Social Science" },
+		{ label: "Notes", value: "Notes" },
+		{ label: "Previous Year Papers", value: "Previous Year Papers" },
+		{ label: "Documents", value: "Documents" },
 	]);
 
 	const [selectedFile, setSelectedFile] = useState(null);
 
 	const pickFile = async () => {
 		try {
-			const result = await DocumentPicker.getDocumentAsync({ type: "*/*" });
+			const result = await DocumentPicker.getDocumentAsync({ type: "application/pdf" });
 
 			if (result.type === "success") {
 				setSelectedFile(result);
@@ -131,6 +128,7 @@ const Upload = () => {
 							setItems={setFilesname}
 							placeholder="What Kind of File"
 							className="bg-white"
+							maxHeight={325}
 							// Removed 'className' and replaced with 'style'
 							style={{
 								zIndex: 100,
@@ -214,6 +212,14 @@ const Upload = () => {
 					</Text>
 					{selectedFile && (
 						<>
+							<TouchableOpacity
+								className="relative top-6 z-10 flex-row items-center justify-end font-bold text-white mx-[5%] w-[90%] "
+								onPress={deleteFile}
+							>
+								<Text className="bg-[#c0c0c0] rounded-full w-5 h-5 text-center text-[12px] hover:bg-[#0FB]">
+									x
+								</Text>
+							</TouchableOpacity>
 							<View className="w-[90%] mx-[5%] flex-row items-center justify-between bg-slate-200 rounded-2xl p-3 mt-3">
 								<Image source={pdf} className="w-7 h-7" />
 								<Text
@@ -225,14 +231,7 @@ const Upload = () => {
 								</Text>
 								<Text className="text-[10px] text-[#848484]">Uploaded</Text>
 							</View>
-							<TouchableOpacity
-								className="relative bottom-3 flex-row items-center justify-end font-bold text-white mx-[5%] w-[90%] "
-								onPress={deleteFile}
-							>
-								<Text className="bg-[#0FA958] rounded-full w-5 h-5 text-center text-[12px] hover:bg-[#0FB]">
-									x
-								</Text>
-							</TouchableOpacity>
+
 						</>
 					)}
 				</SafeAreaView>
