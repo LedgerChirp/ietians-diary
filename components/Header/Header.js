@@ -41,7 +41,7 @@ const Header = () => {
 					{/* Image component to display the app logo */}
 					<Image
 						source={require("../../assets/Logo.png")}
-						className="w-28 h-28 m-2"
+						className="w-20 h-20 mx-4 mt-4 "
 					/>
 				</View>
 				{/* View containing the notifications icon and user profile picture */}
