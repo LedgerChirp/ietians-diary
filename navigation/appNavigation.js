@@ -12,10 +12,10 @@ import Notes from "../components/Material/Notes";
 import SyllabusScreen from "../screens/SyllabusScreen";
 import ScheduleScreen from "../screens/ScheduleScreen";
 import MarksheetScreen from "../screens/MarksheetScreen";
-
 import PyqScreen from "../screens/PyqScreen";
 import NotesScreen from "../screens/NotesScreen";
 import ProfileScreen from "../components/Profile/Profile";
+import SignInScreen from "../screens/SignInScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -34,6 +34,11 @@ const AppNavigator = () => {
         <Tab.Screen
           name="Pyq"
           component={PyqScreen}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name="SignIn"
+          component={SignInScreen}
           options={{ headerShown: false }}
         />
         <Tab.Screen

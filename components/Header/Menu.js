@@ -13,6 +13,9 @@ const Menu = () => {
     navigate("Profile");
     // setShowMenu(false);
   };
+  const onPressLogin = () => {
+    navigate("SignIn");
+  };
   const [fontsLoaded] = useFonts({
     "open-sans-med": require("../../assets/fonts/opensans/static/OpenSans-Medium.ttf"),
     "open-sans-bold": require("../../assets/fonts/opensans/static/OpenSans-Bold.ttf"),
@@ -70,6 +73,7 @@ const Menu = () => {
       <Text
         className="text-base px-2 py-1"
         style={{ fontFamily: "poppins-normal" }}
+        onPress={onPressLogin}
       >
         Log Out
       </Text>
