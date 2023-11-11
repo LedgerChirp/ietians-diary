@@ -32,7 +32,7 @@ const AppNavigator = () => {
           options={{ headerShown: false }}
         />
         <Tab.Screen
-          name="pyq"
+          name="Pyq"
           component={PyqScreen}
           options={{ headerShown: false }}
         />

@@ -12,9 +12,24 @@ const Material = () => {
   const { navigate } = useNavigation();
 
   // Function to handle the button press and navigate to the "Notes" screen
-  const onPress = () => {
+  const onPressNotes = () => {
     navigate("Notes");
   };
+  const onPressPyq = () => {
+    navigate("Pyq");
+  };
+  const onPressSchedule = () => {
+    navigate("Schedule");
+  };
+  const onPressMarksheet = () => {
+    navigate("Marksheet");
+  };
+  const onPressSyllabus = () => {
+    navigate("Syllabus");
+  };
+  // const onPressNotes = () => {
+  //   navigate("Notes");
+  // };
   //loading fonts
   const [fontsLoaded] = useFonts({
     "open-sans-med": require("../../assets/fonts/opensans/static/OpenSans-Medium.ttf"),
@@ -40,7 +55,7 @@ const Material = () => {
       <View className="flex-row justify-around my-2 items-center">
         {/* Study material category: Notes */}
         <TouchableOpacity
-          onPress={onPress}
+          onPress={onPressNotes}
           className="flex-row justify-between px-3 w-[28%] items-center bg-[#C4E9E5] p-3 rounded-2xl"
         >
           <Image
@@ -55,7 +70,10 @@ const Material = () => {
           </Text>
         </TouchableOpacity>
         {/* Study material category: PYQ's */}
-        <TouchableOpacity className="flex-row justify-between items-center px-3 p-3 w-[29%] bg-[#FFC3CF] rounded-2xl">
+        <TouchableOpacity
+          onPress={onPressPyq}
+          className="flex-row justify-between items-center px-3 p-3 w-[29%] bg-[#FFC3CF] rounded-2xl"
+        >
           <Image
             source={require("../../assets/Icons/stickynote.png")}
             className="w-8 h-8"
@@ -68,7 +86,10 @@ const Material = () => {
           </Text>
         </TouchableOpacity>
         {/* Study material category: Syllabus */}
-        <TouchableOpacity className="flex-row justify-between items-center px-3 p-3 w-[32%] bg-[#D0FFD2] rounded-2xl">
+        <TouchableOpacity
+          onPress={onPressSyllabus}
+          className="flex-row justify-between items-center px-3 p-3 w-[32%] bg-[#D0FFD2] rounded-2xl"
+        >
           <Image
             source={require("../../assets/Icons/archive-book-1.png")}
             className="w-8 h-8"
@@ -103,7 +124,7 @@ const Material = () => {
             </Text>
           </View>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPressSchedule}>
           <Image
             source={require("../../assets/Icons/arrow_circle.png")}
             className="w-8 h-8"
@@ -132,7 +153,7 @@ const Material = () => {
             </Text>
           </View>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPressMarksheet}>
           <Image
             source={require("../../assets/Icons/arrow_circle.png")}
             className="w-8 h-8"
