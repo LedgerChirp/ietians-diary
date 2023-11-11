@@ -11,6 +11,7 @@ const Menu = () => {
 
   const onPressProfile = () => {
     navigate("Profile");
+    // setShowMenu(false);
   };
   const [fontsLoaded] = useFonts({
     "open-sans-med": require("../../assets/fonts/opensans/static/OpenSans-Medium.ttf"),

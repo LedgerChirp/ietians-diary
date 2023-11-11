@@ -272,7 +272,7 @@ const Profile = () => {
           <View className="py-4 mt-14 px-6 flex flex-row justify-between items-center">
             <AntDesign
               name="left"
-              size={24}
+              size={18}
               color="black"
               onPress={onPressBack}
             />

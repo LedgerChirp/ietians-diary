@@ -55,9 +55,9 @@ const Header = () => {
                 uri: "https://avatars.githubusercontent.com/u/72643990?v=4",
               }}
               email={
+                "mohitaasirwal@gmail.com" ||
                 "tkanishk6103@gmail.com" ||
-                "mustafaazad533@gmail.com" ||
-                "mohitaasirwal@gmail.com"
+                "mustafaazad533@gmail.com"
               }
               className="h-8 w-8 my-3 mx-2"
             />
