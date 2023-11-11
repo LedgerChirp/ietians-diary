@@ -7,6 +7,11 @@ import { useNavigation } from "@react-navigation/native";
 SplashScreen.preventAutoHideAsync();
 
 const Menu = () => {
+  const { navigate } = useNavigation();
+
+  const onPressProfile = () => {
+    navigate("Profile");
+  };
   const [fontsLoaded] = useFonts({
     "open-sans-med": require("../../assets/fonts/opensans/static/OpenSans-Medium.ttf"),
     "open-sans-bold": require("../../assets/fonts/opensans/static/OpenSans-Bold.ttf"),
@@ -23,12 +28,6 @@ const Menu = () => {
   if (!fontsLoaded) {
     return null;
   }
-
-  const { navigate } = useNavigation();
-
-  const onPressProfile = () => {
-    navigate("Profile");
-  };
 
   return (
     <View

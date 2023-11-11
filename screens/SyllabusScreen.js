@@ -1,21 +1,19 @@
 import { View, Text } from "react-native";
 import React from "react";
-import Search from "../components/Material/Search";
+import Pyq from "../components/Material/Pyq";
+import SearchBar from "../components/Material/Search";
 import Header from "../components/Header/Header";
-import Material from "../components/Material/Material";
 
-
-const MaterialScreen = () => {
- 
+const PyqScreen = () => {
   return (
     <>
       <View className="bg-white">
         <Header />
-        <Search />
-        <Material />
+        <SearchBar />
+        <Pyq />
       </View>
     </>
   );
 };
 
-export default MaterialScreen;
+export default PyqScreen;
