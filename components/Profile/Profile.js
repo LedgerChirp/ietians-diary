@@ -108,7 +108,7 @@ const Profile = () => {
   };
 
   const [image, setImage] = useState(
-    "https://avatars.githubusercontent.com/u/72643990?v=4"
+    "https://avatars.githubusercontent.com/u/98788439?v=4"
   );
 
   const pickImage = async () => {
@@ -133,7 +133,7 @@ const Profile = () => {
     const permissionResult = await ImagePicker.requestCameraPermissionsAsync();
 
     if (permissionResult.granted === false) {
-      alert("You've refused to allow this appp to access your camera!");
+      alert("You've refused to allow this app to access your camera!");
       return;
     }
 

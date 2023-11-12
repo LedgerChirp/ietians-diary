@@ -16,6 +16,9 @@ const Menu = () => {
   const onPressLogin = () => {
     navigate("SignIn");
   };
+  const onPressSettings = () => {
+    navigate("Settings");
+  };
   const [fontsLoaded] = useFonts({
     "open-sans-med": require("../../assets/fonts/opensans/static/OpenSans-Medium.ttf"),
     "open-sans-bold": require("../../assets/fonts/opensans/static/OpenSans-Bold.ttf"),
@@ -67,6 +70,7 @@ const Menu = () => {
       <Text
         className="text-base px-2 py-1"
         style={{ fontFamily: "poppins-normal" }}
+        onPress={onPressSettings}
       >
         Settings
       </Text>

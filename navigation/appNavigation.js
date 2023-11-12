@@ -16,6 +16,8 @@ import PyqScreen from "../screens/PyqScreen";
 import NotesScreen from "../screens/NotesScreen";
 import ProfileScreen from "../components/Profile/Profile";
 import SignInScreen from "../screens/SignInScreen";
+import SettingsScreen from "../screens/SettingsScreen";
+import AboutScreen from "../screens/AboutScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -47,8 +49,18 @@ const AppNavigator = () => {
           options={{ headerShown: false }}
         />
         <Tab.Screen
+          name="About"
+          component={AboutScreen}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
           name="Marksheet"
           component={MarksheetScreen}
+          options={{ headerShown: false }}
+        />
+        <Tab.Screen
+          name="Settings"
+          component={SettingsScreen}
           options={{ headerShown: false }}
         />
         <Tab.Screen
