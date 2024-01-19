@@ -81,7 +81,7 @@ const Notes = () => {
     return (
         <SafeAreaView>
             <Text className="font-semibold text-[#808080] mx-2 mt-2">
-                Notes
+                Schedule
             </Text>
             <ScrollView
                 // statusBarHeight={20}

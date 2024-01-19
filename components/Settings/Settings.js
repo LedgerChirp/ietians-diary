@@ -1,15 +1,29 @@
-import { View, Text, TouchableOpacity, Switch, Image } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Switch,
+  Image,
+  Touchable,
+} from "react-native";
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { AntDesign, Entypo } from "@expo/vector-icons";
 import HorizontalRule from "./HorizontalRule";
 
 const Settings = () => {
-  const [isEnable, setIsEnable] = useState(true);
-  const toggleSwitch = () => setIsEnable((previousState) => !previousState);
+  const [isDarkEnable, setIsDarkEnable] = useState(true);
+  const [isNotificationsEnable, setIsNotificationsEnable] = useState(true);
+  const toggleSwitchDark = () =>
+    setIsDarkEnable((previousState) => !previousState);
+  const toggleSwitchNotifications = () =>
+    setIsNotificationsEnable((previousState) => !previousState);
   const { navigate } = useNavigation();
   const onPressBack = () => {
     navigate("Home");
+  };
+  const onPressBug = () => {
+    navigate("Bug");
   };
   const onPressAbout = () => {
     navigate("About");
@@ -36,9 +50,9 @@ const Settings = () => {
         </View>
         <Switch
           trackColor={{ false: "#767577", true: "#81b0ff" }}
-          thumbColor={isEnable ? "#f5dd4b" : "#f4f3f4"}
-          value={isEnable}
-          onValueChange={toggleSwitch}
+          thumbColor={isDarkEnable ? "#f5dd4b" : "#f4f3f4"}
+          value={isDarkEnable}
+          onValueChange={toggleSwitchDark}
           className="absolute left-60 -bottom-3"
         ></Switch>
       </View>
@@ -66,8 +80,8 @@ const Settings = () => {
         <Switch
           //   trackColor={{ false: "#767577", true: "#81b0ff" }}
           //   thumbColor={isEnable ? "#f5dd4b" : "#f4f3f4"}
-          value={isEnable}
-          onValueChange={toggleSwitch}
+          value={isNotificationsEnable}
+          onValueChange={toggleSwitchNotifications}
           className="absolute left-60 -bottom-3"
         ></Switch>
       </View>
@@ -96,13 +110,13 @@ const Settings = () => {
       </View>
       <HorizontalRule />
       <View className="flex flex-row justify-between mx-7">
-        <View className="flex flex-row space-x-4">
+        <TouchableOpacity className="flex flex-row space-x-4">
           <Image
             source={require("../../assets/Icons/bug.png")}
             className="w-6 h-6"
           />
           <Text className="text-xl">Report a Bug</Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
